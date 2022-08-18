@@ -156,6 +156,21 @@ window.NETWORKS = {
       "https://www.hooscan.com"
     ]
   },
+  NOVA: {
+    "chainId": "0x57",
+    "chainName": "Nova Network",
+    "nativeCurrency": {
+      "name": "snt",
+      "symbol": "SNT",
+      "decimals": 18
+    },
+    "rpcUrls": [
+      "https://connect.novanetwork.io"
+    ],
+    "blockExplorerUrls": [
+      "https://explorer.novanetwork.io"
+    ]
+  },
   MOONRIVER: {
     "chainId": "0x505",
     "chainName": "Moonriver",

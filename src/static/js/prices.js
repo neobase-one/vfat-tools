@@ -595,6 +595,10 @@ const MoonriverTokens = [
   { "id": "sushi","symbol": "SUSHI", "contract": "0xf390830DF829cf22c53c8840554B98eafC5dCBc2" }
 ];
 
+const NovaTokens = [
+  //{ "id": "tether", "symbol": "USDT", "contract": "0x382bb369d343125bfb2117af9c149795c6c65c50"}
+];
+
 const OkexTokens = [
   { "id": "tether", "symbol": "USDT", "contract": "0x382bb369d343125bfb2117af9c149795c6c65c50"},
   { "id": "okexchain", "symbol": "OKT", "contract": "0x8F8526dbfd6E38E3D8307702cA8469Bae6C56C15"},
@@ -909,6 +913,15 @@ async function getMoonriverPrices() {
   const idPrices = await lookUpPrices(MoonriverTokens.map(x => x.id));
   const prices = {}
   for (const bt of MoonriverTokens)
+      if (idPrices[bt.id])
+          prices[bt.contract] = idPrices[bt.id];
+  return prices;
+}
+
+async function getNovaPrices() {
+  const idPrices = await lookUpPrices(NovaTokens.map(x => x.id));
+  const prices = {}
+  for (const bt of NovaTokens)
       if (idPrices[bt.id])
           prices[bt.contract] = idPrices[bt.id];
   return prices;

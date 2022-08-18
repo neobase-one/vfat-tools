@@ -111,6 +111,9 @@ const pageNetwork = function() {
   if (network.toLowerCase() === 'metis') {
     return window.NETWORKS.METIS
   }
+  if (network.toLowerCase() === 'nova') {
+    return window.NETWORKS.NOVA
+  }
   if (network.toLowerCase() === 'meter') {
     return window.NETWORKS.METER
   }
@@ -3404,6 +3407,9 @@ function getErc20Prices(prices, pool, chain="eth") {
     case "metis":
       poolUrl=`https://andromeda-explorer.metis.io/token/${pool.address}`;
       break;
+    case "nova":
+      poolUrl=`https://explorer.novanetwork.io/token/${pool.address}`;
+      break;
     case "meter":
       poolUrl=`https://scan.meter.io/token/${pool.address}`;
       break;
@@ -4090,6 +4096,9 @@ async function printSynthetixPool(App, info, chain="eth", customURLs) {
       case "metis":
         _print(`<a target="_blank" href="https://andromeda-explorer.metis.io/address/${info.stakingAddress}#code">Andromeda Explorer</a>`);
         break;
+      case "nova":
+        _print(`<a target="_blank" href="https://explorer.novanetwork.io/address/${info.stakingAddress}#code">Nova Explorer</a>`);
+        break;
       case "meter":
         _print(`<a target="_blank" href="https://scan.meter.io/address/${info.stakingAddress}#code">Andromeda Explorer</a>`);
         break;
@@ -4294,6 +4303,8 @@ function getChainExplorerUrl(chain, address){
       return `https://blockexplorer.boba.network/address/${address}`;
     case "metis" :
       return `https://andromeda-explorer.metis.io/address/${address}`;
+    case "nova" :
+      return `https://explorer.novanetwork.io/token/${address}`;
     case "meter" :
       return `https://scan.meter.io/address/${address}`;
     case "emerald" :
