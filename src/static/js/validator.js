@@ -101,6 +101,41 @@ async function main() {
 
     _print("");
 
+//========================================================================================================================================================================
+    _print("Please add an address to find its validators.");
+
+    //adding a button for searching Validators by address
+    let addressInput = document.createElement("input");
+    addressInput.setAttribute("id", "address");
+    addressInput.setAttribute("type", "text");
+    document.body.appendChild(addressInput);
+
+    let addressButton = document.createElement("button");
+    addressButton.innerHTML = "Search"
+    addressButton.onclick = async function getValidatorIndexes() {
+      _print("");
+      const inputAddress = document.getElementById("address").value;
+
+      const _validatorIndexes = await $.ajax({
+        url  : `https://beaconcha.in/api/v1/validator/eth1/${inputAddress}`,
+        type : `GET`
+      });
+
+      const validatorIndexes = _validatorIndexes.data;
+      if(validatorIndexes.validatorindex){
+        _print(validatorIndexes.validatorindex);
+      }else{
+        for(const validatorIndex of validatorIndexes){
+          _print(validatorIndex.validatorindex);
+          _print("-------");
+        }
+      }
+    }
+    document.body.appendChild(addressButton);
+//========================================================================================================================================================================
+
+    _print("");
+
     //adding a button for searching Validators
     _print("Please add up to 100 Validators separated by a comma.");
 
