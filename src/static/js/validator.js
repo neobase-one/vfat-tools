@@ -139,6 +139,7 @@ async function main() {
     //adding a button for searching Validators
     _print("Please add up to 100 Validators separated by a comma.");
 
+    let validatorsDiv = document.createElement("div");
     let input = document.createElement("input");
     input.setAttribute("id", "chosedValidators"); //with id chosedValidators i can get the values of the input
     input.setAttribute("type", "text");
@@ -217,7 +218,9 @@ async function main() {
         }
       }
     }
-    document.body.appendChild(btn);
+    validatorsDiv.appendChild(btn);
+    validatorsDiv.appendChild(input);
+    document.body.appendChild(validatorsDiv);
 
     hideLoading();
   }
