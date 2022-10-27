@@ -8,7 +8,8 @@ const main = async() => {
     "title":"CANTO Network",
     "heading":["Pool Provider","MCN","LP", "Reward Tokens", "INFO"],
     "rows": [
-      ["Encanto       ","", `<a href='encanto'       >Various</a>`,"ENCANTO          ","https://encantowetrust.com"]
+      ["Encanto       ","", `<a href='encanto'       >Various</a>`,"ENCANTO          ","https://encantowetrust.com"],
+      ["Canto         ","", `<a href='canto'         >Various</a>`,"CANTO            ","                          "]
     ]
   }
 
