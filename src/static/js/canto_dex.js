@@ -39,8 +39,6 @@ const decimals = {
 
 const cantoAddress = "0x826551890dc65655a0aceca109ab11abdbd7a07b"
 
-
-
 const pairNames = [
     ["NOTE", "USDC"],
     ["NOTE", "USDT"],
@@ -60,6 +58,7 @@ async function main() {
         prices[k.toLowerCase()] = prices[k];
     }
 
+    const rewardTokenTicker = "WCANTO";
     const poolCount = ctokenAddresses.length;
     const BaseV1Router = new ethers.Contract("0xa252eee9bde830ca4793f054b506587027825a8e", BaseV1Router_ABI, App.provider);
     const Comptroller = new ethers.Contract(ComptrollerAddress, Comptroller_ABI, App.provider);
@@ -99,15 +98,16 @@ async function main() {
         const secondsInYear = 365 * 24 * 60 * 60;
         const blockTime = 5.8;
         const blocksPerYear = secondsInYear / blockTime;
-        // _print(`borrowRate- ${(borrowRate)}`)
         const apr = borrowRate * blocksPerYear / (10 ** 18);
-        _print(`apr - ${apr.toFixed(2)}%`)
+        _print(`Supply APR - ${apr.toFixed(2)}%`)
 
         var compSupplySpeed = await Comptroller.compSupplySpeeds(ctokenAddresses[i]);
         const cantoPrice = prices[cantoAddress]["usd"];
         const tokenSupply = await Ctoken.getCash();
         distApy = ((compSupplySpeed * blocksPerYear) / tokenSupply) * (cantoPrice / tokenPrice) * 100;
-        _print(`DistAPR - ${distApy.toFixed(2)}%`)
+        _print(`Distribution APR - ${distApy.toFixed(2)}%`)
+
+        _print(`<a href='https://evm.explorer.canto.io/address/${ctokenAddresses[i]}' target='_blank'>Canto Explorer</a>\n`);
 
     }
     hideLoading();
