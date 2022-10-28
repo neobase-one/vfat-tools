@@ -9,7 +9,7 @@ const main = async() => {
     "heading":["Pool Provider","MCN","LP", "Reward Tokens", "INFO"],
     "rows": [
       ["Encanto       ","", `<a href='encanto'       >Various</a>`,"ENCANTO          ","https://encantowetrust.com"],
-      ["Canto         ","", `<a href='canto'         >Various</a>`,"CANTO            ","                          "]
+      ["Canto dex     ","", `<a href='cantodex'      >Various</a>`,"CANTO DEX        ","https://canto.io/         "]
     ]
   }
 
